@@ -1,0 +1,21 @@
+{% load blog_tags %}
+{% block content %}
+  <section id="blogs">
+      <div class="container">
+        <h1>Blogs</h1>
+          {% render_bloglist as posts %}
+          {% for post in posts%}
+        <div class="box">
+            <a href="{{post.title}}">
+                <img src="{{post.image.url}}"></img>
+            </a>
+            <h3>{{post.title}}</h3>
+            <h4>Posted on {{post.timestamp}} by {{post.author}}</h4>
+            <p>{{post.bodytext| truncatewords:"100"}}</p>
+        </div>
+          {% endfor %}
+      </div>
+  </section>
+{%endblock%}
+
+
